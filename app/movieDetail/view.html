@@ -1,0 +1,27 @@
+<div ng-show="!loading">
+	<h3 ng-show="loading">正在全力加载数据，请稍后...</h3>
+	<h2 ng-if="errorMessage">{{errorMessage}}</h2>
+	<div class="container">
+		<h2 class="media-heading"><strong>{{movie.title}}</strong></h2>
+		<img class="media-object" ng-src="{{movie.images.large}}" alt="{{movie.title}}">
+		<h4>分类：{{movie.genres.join('、')}}</h4>
+		<h4>上映年份：{{movie.year}}</h4>
+		<h4>导演：<span ng-repeat="cast in movie.casts">{{cast.name}}{{$last?'':'、'}}</span></h4>
+		<h4>演员：<span ng-repeat="director in movie.directors">{{director.name}}{{$last?'':'、'}}</span></h4>
+		<h4>制片国家/地区：{{movie.countries.join('、')}}</h4>
+		<h4>看过人数：{{movie.collect_count}}</h4>
+		<h4>影评数量：{{movie.reviews_count}}</h4>
+		<h4>想看人数：{{movie.wish_count}}</h4>
+		<h4>评分：{{movie.rating.average}}</h4>
+		<h4>评星数：{{movie.rating.stars}}</h4>
+		<h4>{{movie.summary}}</h4>
+	</div>
+</div>
+
+
+<div class="mask" ng-show="loading">
+  <div class="spinner">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
+</div>

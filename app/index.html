@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小陈电影院</title>
+	<link rel="stylesheet" href="bowerComponents/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">小陈电影院</a>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+				<span class="sr-only">切换导航</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse" id="navbar-collapse" ng-controller="mainController">
+			<ul class="nav navbar-nav navbar-right" style="margin-top:0;">
+				<li auto-focus><a href="#/in_theaters/1"><span class="glyphicon glyphicon-home"></span>正在热映 </a></li>
+				<li auto-focus><a href="#/coming_soon/1"><span class="glyphicon glyphicon-road"></span>即将上映</a></li>
+				<li auto-focus><a href="#/top250/1"><span class="glyphicon glyphicon-time"></span>TOP250</a></li>
+			</ul>
+			<form class="navbar-form navbar-right" ng-submit="doSearch()">
+				<input type="search" class="form-control" ng-model="searchData" placeholder="Search...">
+			</form>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+<!--				<li ng-class="{active:movieType=='in_theaters'}"><a href="#/in_theaters/1">正在热映 </a></li>
+				<li ng-class="{active:movieType=='coming_soon'}"><a href="#/coming_soon/1">即将上映</a></li>
+				<li ng-class="{active:movieType=='top250'}"><a href="#/top250/1">TOP250</a></li>-->
+				<li auto-focus><a href="#/in_theaters/1">正在热映 </a></li>
+				<li auto-focus><a href="#/coming_soon/1">即将上映</a></li>
+				<li auto-focus><a href="#/top250/1">TOP250</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view>
+		</div>
+	</div>
+</div>
+
+<script src="bowerComponents/angular/angular.js"></script>
+<script src="bowerComponents/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="components/http.js"></script>
+<script src="components/autoFocus.js"></script>
+<script src="movieList/controller.js"></script>
+<script src="movieDetail/controller.js"></script>
+<script src="components/js/jquery-1.11.3.min.js"></script>
+<script src="bowerComponents/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?012e79a86dcdda0f0f2b4540fd9399e4";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+</body>
+</html>

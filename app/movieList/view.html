@@ -1,0 +1,33 @@
+<h3>{{datas.title?datas.title:'正在全力加载数据，请稍后...'}}</h3>
+<h2 ng-if="errorMessage">{{errorMessage}}</h2>
+<div class="list-group">
+	<a href="#/detail/{{item.id}}" class="list-group-item" ng-repeat="item in datas.subjects  | orderBy:'-rating.average'">
+		<span class="badge">{{item.rating.average}}</span>
+		<div class="media">
+			<div class="media-left media-middle">
+				<img class="media-object" ng-src="{{item.images.small}}" alt="{{item.title}}">
+			</div>
+			<div class="media-body">
+				<h3 class="media-heading">{{item.title}}</h3>
+				<div>分类：{{item.genres.join('、')}}　　上映年份：{{item.year}}</div>
+				<div>导演：<span ng-repeat="cast in item.casts">{{cast.name}}{{$last?'':'、'}}</span></div>
+				<div>演员：<span ng-repeat="director in item.directors">{{director.name}}{{$last?'':'、'}}</span></div>
+			</div>
+		</div>
+	</a>
+</div>
+<div ng-show="!loading">
+	<nav>
+		<ul class="pager">
+			<li ng-class="page===1?'disabled':''"><a ng-click="onSelectPage(page-1)">上一页</a></li>
+			<li ng-class="page===totalPage?'disabled':''" ><a ng-click="onSelectPage(page+1)">下一页</a></li>
+		</ul>
+	</nav>
+	总有<strong>{{datas.total}}</strong>条记录，当前第<strong>{{page}}</strong>页，共<strong>{{totalPage}}</strong>页
+</div>
+<div class="mask" ng-show="loading">
+	<div class="spinner">
+		<div class="dot1"></div>
+		<div class="dot2"></div>
+	</div>
+</div>
