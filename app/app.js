@@ -17,8 +17,8 @@ angular.module('myApp', [
 	}])
 	.constant('AppConfig',{
 		pageSize:10,
-		listApiAddress:'http://api.douban.com/v2/movie/',
-		detailApiAddress:'http://api.douban.com/v2/movie/subject/'
+		listApiAddress:'https://douban.uieee.com/v2/movie/',
+		detailApiAddress:'https://douban.uieee.com/v2/movie/subject/'
 	})
 	.config(['$routeProvider', function($routeProvider) {
 	  $routeProvider.otherwise({redirectTo: '/in_theaters/1'});
